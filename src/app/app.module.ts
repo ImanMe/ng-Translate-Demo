@@ -7,7 +7,8 @@ import { MyTranslateComponent } from "./my-translate/my-translate.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { Globals } from "./global";
-
+import { SimpleNotificationsModule } from "angular2-notifications";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -15,9 +16,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [AppComponent, MyTranslateComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([]),
+    SimpleNotificationsModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
